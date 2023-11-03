@@ -1,0 +1,15 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./backend:/app/backend
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
