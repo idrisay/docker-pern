@@ -130,6 +130,20 @@ app.delete("/todos/:id", (req, res) => {
   );
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Check the initial database connection
+pool.connect((err) => {
+  if (err) {
+    console.error("Error connecting to the database:", err);
+    // You can handle the error here, e.g., exit the application
+  } else {
+    console.log("Connected to the database");
+    // Continue setting up your Express routes and start the server
+    app.use(express.json());
+
+    // ... Define your routes here ...
+
+    app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
+    });
+  }
 });

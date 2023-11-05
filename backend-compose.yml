@@ -8,8 +8,3 @@ services:
       - "5055:5055"
     volumes:
       - ./backend:/app/backend
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
